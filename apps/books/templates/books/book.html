@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Book</title>
+  </head>
+  <body>
+    <a href="/books">Home</a><a href="#">Logout</a>
+    {% for values in book %}
+    <h1>{{values.title}}</h1>
+    <h2>{{values.author}}</h2>
+    {% endfor %}
+    <h3>Reviews</h3>
+    <p>rating:</p>
+    <p><a href="/books/{{user_id}}">name</a>review</p>
+    <p><i>time</i></p>
+    <form action="/update" method="post">
+      {% csrf_token %}
+      <h3>Add a review</h3>
+      <textarea name="review" rows="8" cols="80"></textarea>
+      rating: <select name="rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <input type="submit" name="update" value="Submit a review">
+    </form>
+  </body>
+</html>
